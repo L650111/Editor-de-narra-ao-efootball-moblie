@@ -1,0 +1,14 @@
+{
+  "versao": 1,
+  "cpk": "dt510_bra_mobile_all.cpk",
+  "tamanho_cpk": 827291697,
+  "chave": "14121473",
+  "manter_duracao": true,
+  "substituicoes": [
+    {
+      "banco": "00_TEAM",
+      "id": 0,
+      "arquivo": "meus_audios/ID000000__BR_A1_T0_F0102.wav"
+    }
+  ]
+}

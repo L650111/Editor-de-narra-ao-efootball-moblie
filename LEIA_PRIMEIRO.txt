@@ -1,0 +1,44 @@
+EDITOR DE ÁUDIO CPK — COMO COMEÇAR
+
+LINUX MINT / UBUNTU (PACOTE COM EXECUTÁVEL)
+1. Extraia o ZIP inteiro.
+2. Abra o terminal na pasta extraída.
+3. Execute: bash Abrir_no_Linux.sh
+
+WINDOWS (CÓDIGO-FONTE)
+1. Instale Python 3.12 de 64 bits, incluindo Python Launcher e Tcl/Tk.
+2. Extraia o ZIP inteiro e abra Abrir_no_Windows.bat.
+3. A primeira execução baixa as dependências.
+
+NO PROGRAMA
+1. Abra dt510_bra_mobile_all.cpk.
+2. Escolha o grupo (00_TEAM, 10_PLAYER_1 até 4, 20_MAIN_1 e 2 etc.).
+   Depois busque uma fala pelo ID ou nome interno.
+3. Use Ouvir original para identificar a fala.
+4. Clique em Associar áudio para escolher o novo WAV, MP3, FLAC etc.
+5. Escolha um nome NOVO para o CPK de saída.
+6. Clique em Gerar novo CPK.
+
+Comece com uma única troca para testar no jogo.
+Os ZIPs dos áudios antigos não são necessários.
+O CPK original não está incluído neste pacote e nunca é sobrescrito.
+Você fornece os novos áudios já gravados ou gerados.
+Manter duração original corta o excesso e completa trechos curtos com silêncio.
+Usar duração do novo áudio atualiza os metadados correspondentes.
+
+Mais informações: README.md
+Resultados dos testes: VALIDACAO.md
+
+NOVO NA VERSÃO 1.1
+O seletor organiza os áudios nos mesmos nove grupos dos ZIPs anteriores.
+Use Exportar ZIPs para salvar o grupo atual ou todos em ZIPs independentes.
+Formatos: MP3 + HCA original, MP3, WAV ou HCA original.
+Os tamanhos dependem do formato escolhido.
+
+NOVO NA VERSÃO 1.2 — REPETIR SEU ÁUDIO
+Abra o CPK e clique em Repetir áudio.
+Use Escolher áudio para selecionar seu WAV ou MP3.
+Escolha Todo o CPK ou Somente o grupo atual e a opção de duração.
+Clique em Aplicar à lista e depois em Gerar novo CPK.
+Você escolhe a gravação; o programa a associa às posições selecionadas.
+O botão Limpar remove as associações para começar outra lista.

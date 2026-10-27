@@ -1,0 +1,2 @@
+cricodecs==1.2.0
+imageio-ffmpeg==0.6.0
