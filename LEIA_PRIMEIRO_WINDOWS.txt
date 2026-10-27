@@ -1,0 +1,19 @@
+EDITOR DE ÁUDIO CPK — WINDOWS 10/11 (64 BITS)
+
+1. Baixe EditorCPKAudio-Windows-x64.zip e extraia o ZIP inteiro.
+2. Abra EditorCPKAudio.exe com dois cliques.
+3. Clique em Abrir CPK e selecione seu arquivo original.
+
+Não é necessário instalar Python, FFmpeg ou outras dependências.
+O download separado de EditorCPKAudio.exe também funciona sozinho.
+
+Para substituir várias falas pela mesma gravação, clique em Repetir áudio,
+escolha seu WAV/MP3 e o grupo desejado, e aplique à lista de substituições.
+Escolha um nome novo para a saída e clique em Gerar novo CPK.
+
+O CPK e os áudios originais do jogo não acompanham o programa.
+O original não é sobrescrito. Comece com uma troca pequena e teste no jogo.
+
+Instruções completas: README.md
+Licenças: LICENSE, LICENCAS_TERCEIROS.md e licencas/
+Verificação do executável: VERIFICACAO_WINDOWS.json

@@ -4,6 +4,7 @@ __pycache__/
 *.pyc
 build/
 dist/
+release/
 programa_linux/
 *.spec
 *.cpk

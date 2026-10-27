@@ -1,0 +1,72 @@
+name: Compilar e publicar Windows
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: windows-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  windows:
+    runs-on: windows-2022
+    timeout-minutes: 25
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Baixar código
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      - name: Preparar Python 3.12 x64
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7
+        with:
+          python-version: '3.12'
+          architecture: x64
+          cache: pip
+          cache-dependency-path: 'requirements*.txt'
+
+      - name: Instalar dependências
+        run: python -m pip install -r requirements-dev.txt
+
+      - name: Executar testes disponíveis sem o CPK do jogo
+        run: python -m pytest -q
+
+      - name: Compilar e verificar executável independente
+        run: python scripts/build_windows.py
+
+      - name: Guardar pacote da compilação
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: EditorCPKAudio-Windows-x64
+          path: |
+            release/EditorCPKAudio.exe
+            release/EditorCPKAudio-Windows-x64.zip
+            release/VERIFICACAO_WINDOWS.json
+            release/SHA256SUMS.txt
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Publicar downloads na Release
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$env:RELEASE_TAG" `
+            release/EditorCPKAudio.exe `
+            release/EditorCPKAudio-Windows-x64.zip `
+            release/VERIFICACAO_WINDOWS.json `
+            release/SHA256SUMS.txt `
+            --verify-tag --latest `
+            --title "Editor de Áudio CPK $env:RELEASE_TAG — Windows x64" `
+            --notes-file release/NOTAS_RELEASE.md

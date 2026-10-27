@@ -63,8 +63,18 @@ Na versão 1.1, o executável foi recompilado e abriu a nova interface sem depen
 
 Na versão 1.2, o executável também abriu sem dependências externas de Python/Tcl/Tk e gerou um CPK com os **54.833 áudios substituídos por uma única gravação de teste**, usando o FFmpeg incluído. A montagem foi reaberta e validada pelo próprio mecanismo antes da finalização. O botão da interface permite escolher outra gravação no computador do usuário.
 
+## Pacote Windows
+
+O fluxo `Compilar e publicar Windows` compila o código com Python 3.12 de 64 bits e PyInstaller em um runner Windows Server 2022 do GitHub Actions. A publicação exige que o próprio EXE, executado fora do código-fonte em uma pasta com espaços e acentos e com PATH vazio, aprove os seguintes testes:
+
+- Conversão de um WAV estéreo/44,1 kHz para PCM mono/48 kHz usando o FFmpeg incluído.
+- Codificação HCA v2, criptografia com a chave padrão e decodificação, com conferência de duração, frequência e amplitude do sinal recuperado.
+- Criação da janela principal Tkinter usando as bibliotecas do executável.
+
+Os resultados, versões e commit utilizado acompanham os downloads em `VERIFICACAO_WINDOWS.json`. Os arquivos distribuídos têm hashes em `SHA256SUMS.txt`. Os testes que precisam do CPK original são ignorados na compilação Windows; o CPK não é baixado nem distribuído pelo fluxo.
+
 ## Limites da verificação
 
 - O CPK modificado **não foi testado dentro do jogo**. Validação estrutural não comprova a aceitação pelo jogo.
-- O iniciador Windows e o código para Windows foram fornecidos; não foi executado teste em um computador Windows e não foi gerado `.exe` para esse sistema.
+- A compilação Windows verifica a interface e o processamento de um áudio sintético. Os testes de reconstrução com o CPK real descritos acima foram realizados no Linux; o EXE não foi testado dentro do jogo.
 - Os testes cobrem o arquivo de referência e seu perfil. Variantes não suportadas são recusadas.

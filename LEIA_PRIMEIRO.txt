@@ -5,7 +5,12 @@ LINUX MINT / UBUNTU (PACOTE COM EXECUTÁVEL)
 2. Abra o terminal na pasta extraída.
 3. Execute: bash Abrir_no_Linux.sh
 
-WINDOWS (CÓDIGO-FONTE)
+WINDOWS 10/11 DE 64 BITS (PROGRAMA PRONTO)
+1. Baixe EditorCPKAudio-Windows-x64.zip na seção Releases do repositório.
+2. Extraia o ZIP e abra EditorCPKAudio.exe.
+3. Não precisa instalar Python, FFmpeg ou outras dependências.
+
+WINDOWS (ALTERNATIVA PELO CÓDIGO-FONTE)
 1. Instale Python 3.12 de 64 bits, incluindo Python Launcher e Tcl/Tk.
 2. Extraia o ZIP inteiro e abra Abrir_no_Windows.bat.
 3. A primeira execução baixa as dependências.

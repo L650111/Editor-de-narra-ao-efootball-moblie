@@ -2,6 +2,12 @@
 
 Programa para substituir falas dentro de `dt510_bra_mobile_all.cpk`, com interface em português. Abre o CPK original, converte seus áudios para HCA e reconstrói um novo CPK. O original nunca é sobrescrito.
 
+## Download para Windows
+
+**[Baixar para Windows 10/11 de 64 bits (ZIP)](https://github.com/L650111/Editor-de-narra-ao-efootball-moblie/releases/latest/download/EditorCPKAudio-Windows-x64.zip)** · **[Baixar somente o EXE](https://github.com/L650111/Editor-de-narra-ao-efootball-moblie/releases/latest/download/EditorCPKAudio.exe)** · [Todas as versões](https://github.com/L650111/Editor-de-narra-ao-efootball-moblie/releases)
+
+Extraia o ZIP e abra **EditorCPKAudio.exe**. Não precisa instalar Python, CriCodecs ou FFmpeg. O CPK original e os áudios do jogo não acompanham o programa. O ZIP também contém as instruções, licenças e o relatório de verificação do executável.
+
 ## Novidade na versão 1.2: escolher um áudio para repetir
 
 Use **Repetir áudio** para colocar uma gravação escolhida por você em todas as falas do CPK ou somente nas falas do grupo atual.
@@ -64,7 +70,7 @@ O executável está em `programa_linux/EditorCPKAudio`. Mantenha a pasta `_inter
 
 ## Abrir pelo código-fonte
 
-**Windows 10/11:** instale Python **3.12 de 64 bits**, incluindo Python Launcher e Tcl/Tk. Extraia o pacote e abra `Abrir_no_Windows.bat`. A primeira abertura cria um ambiente virtual e baixa as dependências. Não há um `.exe` de Windows neste pacote.
+**Windows 10/11, pelo código-fonte:** instale Python **3.12 de 64 bits**, incluindo Python Launcher e Tcl/Tk. Extraia o pacote e abra `Abrir_no_Windows.bat`. A primeira abertura cria um ambiente virtual e baixa as dependências. Para usar o programa pronto sem instalar Python, baixe o executável na seção acima.
 
 **Linux Mint/Ubuntu:** com Python 3.12, execute:
 
@@ -166,6 +172,15 @@ Para gerar um executável no próprio sistema de destino:
 ```bash
 python -m PyInstaller --noconfirm --name EditorCPKAudio --onedir --collect-all cricodecs --collect-all imageio_ffmpeg iniciar.py
 ```
+
+Para gerar o mesmo EXE e ZIP da distribuição Windows, execute no Windows com Python 3.12 de 64 bits:
+
+```powershell
+python -m pip install -r requirements-dev.txt
+python scripts/build_windows.py
+```
+
+Os arquivos ficam em `release/`. O script verifica o executável fora do código-fonte, sem FFmpeg no PATH, antes de montar o pacote. O fluxo [Compilar e publicar Windows](https://github.com/L650111/Editor-de-narra-ao-efootball-moblie/actions/workflows/windows.yml) também faz isso no GitHub Actions: tags `v*` publicam os downloads em uma Release após os testes; a execução manual guarda o pacote como artefato da compilação.
 
 Erros detalhados da interface, quando houver permissão, são registrados em `.editor_cpk_audio/erros.log` na pasta do usuário.
 

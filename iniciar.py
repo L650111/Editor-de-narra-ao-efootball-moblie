@@ -3,6 +3,9 @@
 import sys
 
 if __name__ == "__main__":
+    if len(sys.argv) == 3 and sys.argv[1] == "--autoteste":
+        from editor_cpk.diagnostics import verify_installation
+        raise SystemExit(verify_installation(sys.argv[2]))
     if len(sys.argv) > 1:
         from editor_cpk.cli import main
     else:
